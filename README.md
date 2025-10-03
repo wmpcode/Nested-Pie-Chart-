@@ -114,20 +114,9 @@ The repository includes example data representing:
 
 Inhibitory receptors included: PD-1, TIGIT, TIM3, CTLA4, LAG3
 
-## Citation
-
-If you use this visualization in your research, please cite:
-```
-[Your citation information here]
-```
-
-## License
-
-[Choose your license - e.g., MIT, GPL-3, etc.]
-
 ## Contact
 
-For questions or issues, please open an issue on GitHub or contact [your email].
+For questions or issues, please open an issue on GitHub.
 
 ## Acknowledgments
 
