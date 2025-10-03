@@ -1,4 +1,4 @@
-# Multi-level Nested Pie Chart for Cytokine Flow Cytometry Data
+# Multi-level Nested Pie Chart for Flow Cytometry Data
 
 A visualization tool for displaying expression of multiple markers using boolean gating in flow cytometry data.
 
