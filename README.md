@@ -123,3 +123,7 @@ For questions or issues, please open an issue on GitHub.
 Built using:
 - [ggplot2](https://ggplot2.tidyverse.org/)
 - [ggnewscale](https://github.com/eliocamp/ggnewscale)
+
+## Notes
+
+This script was used in the following publication https://doi.org/10.1038/s41467-025-60941-9
