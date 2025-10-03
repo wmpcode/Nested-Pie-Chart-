@@ -37,7 +37,7 @@ For a simple visualization with pre-formatted data:
 
 ```r
 # Load your data (see Data Format section below)
-source("inhibitory_receptor_pie_chart.R")
+source("main_script.R")
 
 # The script will generate the nested pie chart
 ```
