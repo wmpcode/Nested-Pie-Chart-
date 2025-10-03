@@ -1,5 +1,5 @@
 # ============================================================================
-# Multi-level Nested Pie Chart for Cytokine Flow Cytometry Data
+# Multi-level Nested Pie Chart for Flow Cytometry Data
 # ============================================================================
 # Visualizes expression of multiple markers using boolean gating
 # - Functions: number of markers expressed simultaneously
@@ -15,7 +15,7 @@ library(tidyr)
 
 # Example Data ----
 # Replace this with your own data in the same format
-cytokine_expression <- structure(
+marker_expression <- structure(
   list(
     functions = c(
       "1", "1", "1", "1", "1",
@@ -57,14 +57,14 @@ cytokine_expression <- structure(
 #     dplyr::filter(timepoint == "1" & severity == "severe")
 #
 # # Step 2: Summarize expression across patients
-# cytokine_expression <- severe_1 %>%
+# marker_expression <- severe_1 %>%
 #     group_by(functions, inhibitory_receptors) %>%
 #     summarise(expression = sum(expression), .groups = "drop")
 # ============================================================================
 
 # Data Processing ----
 # Pre-compute segment locations and split marker labels
-cytokine_expression <- cytokine_expression %>%
+marker_expression <- marker_expression %>%
   dplyr::mutate(
     # Cumulative positions for pie segments
     max = cumsum(expression),
@@ -74,7 +74,7 @@ cytokine_expression <- cytokine_expression %>%
   )
 
 # Expand data for outer rings (one row per marker)
-extralabels <- tidyr::unnest(cytokine_expression, labels)
+extralabels <- tidyr::unnest(marker_expression, labels)
 
 # Visualization Settings ----
 # Color scheme for function levels (inner ring)
@@ -84,7 +84,7 @@ mainCol <- c("#232023", "#696969", "#A9A9A9", "#D3D3D3", "grey95")
 labelsize <- 0.2
 
 # Create Plot ----
-plot <- ggplot(cytokine_expression, aes(ymin = min, ymax = max)) +
+plot <- ggplot(marker_expression, aes(ymin = min, ymax = max)) +
   # Inner ring: colored by number of functions
   geom_rect(
     aes(xmin = 0, xmax = 1, fill = factor(functions))
@@ -113,4 +113,4 @@ print(plot)
 
 # Save plot (optional) ----
 # Uncomment to save
-# ggsave("cytokine_pie_chart.png", plot, width = 10, height = 8, dpi = 300)
+# ggsave("marker_pie_chart.png", plot, width = 10, height = 8, dpi = 300)
